@@ -1,0 +1,227 @@
+@import "../../styles/color-variables.scss";
+@import "../../styles/breakpoints.scss";
+/** Источник - https://fonts.google/icons */
+
+.myProfile {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: $media-width-md) {
+    width: 100%;
+    flex-direction: column;
+
+  }
+  &-left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 20px;
+    width: 200px;
+    &::after {
+      content: "";
+      position: absolute;
+      top: -30px;
+      right: -50px; /* Расстояние от правого края элемента myProfile-left */
+      bottom: 0;
+      width: 2px; /* Ширина линии */
+      background-color: $backgroundColor_dark_green; /* Цвет линии */
+    }
+    @media screen and (max-width: $media-width-md) {
+      width: 100%;
+      flex-direction: row;
+      justify-content: center;
+      margin-bottom: 30px;
+      padding: 0 12px;
+      &::after {
+        content: "";
+        display: none;
+      }
+    }
+    @media screen and (max-width: $media-width-xs) {
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    &__button {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 5px;
+      border: none;
+      background-color: transparent;
+      font-weight: 600;
+      color: $colorTextDark;
+      padding: 10px 25px;
+      margin: 0 10px;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 16px;
+      .myProfile-icon {
+        position: relative;
+        &:before {
+          content: url('https://placehold.co/20x20');
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          left: -25px;
+          top: 0;
+          display: block;
+        }
+       }
+      .myProfile-account::before{
+        content: url('https://placehold.co/20x20');
+        transition: all 0.3s ease;
+      }
+      .myProfile-data::before {
+        content: url('https://placehold.co/20x20');
+        transition: all 0.3s ease;
+      }
+      &.active {
+        color: $backgroundColor_dark_green;
+        border-bottom: 3px solid $backgroundColor_dark_green;
+        .myProfile-account::before{
+          content: url('https://placehold.co/20x20');
+        }
+        .myProfile-data::before {
+          content: url('https://placehold.co/20x20');
+        }
+      }
+      @media screen and (max-width: $media-width-xs) {
+        padding: 5px 8px;
+      }
+    }
+  }
+  &-right {
+    max-width: calc(100% - 300px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &__info {
+      display: flex;
+      flex-direction: column;
+      tbody {
+        max-width: 100%;
+        width: 100%;
+      }
+      &-title {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: 600;
+      }
+      &-inputs {
+        width: 100%;
+        .myProfile-right__info-input {
+          border-top: 10px solid transparent;
+          @media screen and (max-width: $media-width-xs) {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border-top: 0px;
+          }
+        }
+        .myProfile-right__info-column1 {
+          font-weight: 600;
+          color: $colorTextBlue;
+          width: 50%;
+          @media screen and (max-width: $media-width-xs) {
+            width: 100%;
+            background-color: $backgroundColor_dark_green;
+            border: 1px solid $backgroundColor_dark_green;
+            padding: 10px;
+            text-align: center;
+            color: $textColor_white;
+          }
+        }
+        .myProfile-right__info-column2 {
+          text-align: right;
+          color: $colorTextBlue;
+          font-weight: 600;
+          width: 50%;
+
+          input {
+            min-width: 350px;
+            padding: 5px 10px;
+            @media screen and (max-width: $media-width-xs) {
+              width: 100%;
+              min-width: 300px;
+              text-align: center;
+              padding: 0;
+            }
+          }
+          @media screen and (max-width: $media-width-xs) {
+            width: 100%;
+            border: 1px solid $backgroundColor_dark_green;
+            text-align: center;
+            padding: 10px;
+          }
+        }
+        @media screen and (max-width: $media-width-xs) {
+          margin-top: 20px;
+        }
+      }
+      .browse-items {
+        margin-top: 20px;
+        gap: 10px;
+        .task-card {
+          max-width: 260px;
+          min-width: 160px;
+        }
+      }
+      .groups-block {
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        &__item {
+          display: flex;
+          padding: 10px 20px;
+          background-color: $backgroundColor_dark_green;
+          border: 1px solid $backgroundColor_dark_green;
+          color: $textColor_white;
+          font-size: 16px;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: rgba($backgroundColor_dark_green, 0.9);
+            border-color: #000000;
+            transition: background-color 0.3s ease-in;
+          }
+        }
+      }
+    }
+    &__logout {
+      background-color: $backgroundColor_dark_green;
+      border: 1px solid $backgroundColor_dark_green;
+      padding: 5px 10px;
+      color: $textColor_white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: rgba($backgroundColor_dark_green, 0.9);
+        border-color: #000000;
+        transition: background-color 0.3s ease-in;
+      }
+    }
+    @media screen and (max-width: $media-width-md) {
+      max-width: 100%;
+      width: 100%;
+      flex-direction: column;
+    }
+  }
+  &-container {
+    min-height: 60vh;
+  }
+}

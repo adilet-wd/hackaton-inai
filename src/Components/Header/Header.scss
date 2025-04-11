@@ -1,0 +1,85 @@
+@import '../../styles/breakpoints.scss';
+@import '../../styles/color-variables.scss';
+
+.header {
+  height: 100px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 400;
+  background-color:  white;
+  color:  $colorTextDark;
+  .navbar {
+    height: 100%;
+    border-bottom: $borderColor_light_gray 1px solid;
+  }
+  .header-container {
+    height: 100%;
+    padding: 0;
+    display: flex;
+    @media (max-width: $media-width-xs) {
+      padding: 0 12px;
+    }
+  }
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Outfit", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0.32px;
+  }
+  .navLogo{
+    max-width: 80px;
+    width: 100%;
+    height: auto;
+    @media (max-width: $media-width-xs) {
+      max-width: 60px;
+    }
+  }
+  .navSearch_block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 60px;
+    border: 1px #ec1c24 solid;
+    padding: 0 0.5rem 0 1rem;
+    @media (max-width: $media-width-md) {
+      margin-top: 15px;
+    }
+  }
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 10px;
+  }
+  .navLinks a{
+    color: $textColor_blue;
+    transition: 0.2s ease-out;
+    text-transform: uppercase;
+    &:hover {
+      color: $textColor_gray;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+.login-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $borderColor_light_gray;
+  padding: 8px 25px !important; // Adjust padding as needed
+  box-sizing: border-box; // Ensure padding and border are included in the element's total width and height
+  transition: 0.2s ease-out;
+  &:hover {
+    border: 1px solid $borderColor_blue;
+    transition: 0.2s ease-in-out;
+  }
+}
+.offcanvas-title {
+  .title-logo {
+    max-width: 36px;
+    width: 100%;
+    height: auto;
+  }
+}

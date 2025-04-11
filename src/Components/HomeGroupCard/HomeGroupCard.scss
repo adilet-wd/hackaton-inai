@@ -1,0 +1,53 @@
+@import '../../styles/breakpoints.scss';
+@import '../../styles/color-variables.scss';
+
+.group-card {
+  max-width: 320px;
+  min-width: 260px;
+  width: 100%;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  border: 1px solid $borderColor_light_gray;
+  border-radius: 0;
+  color: $textColor_blue;
+  &__img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 30px;
+  }
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: "Outfit", sans-serif;
+    font-size: 23px;
+    letter-spacing: 0.48px;
+    @media (max-width: $media-width-sm) {
+      font-size: 20px;
+    }
+  }
+
+  &__info {
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.32px;
+    .info__elem {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+  @media (max-width: $media-width-sm) {
+    padding: 30px 15px;
+  }
+}
