@@ -34,8 +34,8 @@ function Home() {
 
     return (
         <Container className="home">
-            <h3 className={"text-uppercase text-center"}>Slogan</h3>
-            <h1 className={"text-uppercase text-center"}>Best decision<br/> to your service</h1>
+            <h3 className={"text-uppercase text-center"}>Финансовая грамотность начинается здесь.</h3>
+            <h1 className={"text-uppercase text-center"}>Понимай. <br /> Сравнивай.<br /> Получай кредит с уверенностью</h1>
             <div className={"text-center home-text"}>
                 Placeholder text is used to demonstrate the layout of the page and does not carry any meaning. It helps to see how the final design will look. Pay attention to fonts, line spacing, and margins to make the project harmonious.
             </div>
