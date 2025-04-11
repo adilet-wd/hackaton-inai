@@ -55,13 +55,13 @@
     width: calc(100% - 20px);
     padding: 10px 5px;
     color: $textColor_blue;
-    border: 1px solid $backgroundColor_dark_green;
+    border: 1px solid $backgroundColor_blue;
     &:hover {
-      background-color: $backgroundColor_dark_green;
+      background-color: $backgroundColor_blue;
       color: $textColor_white;
     }
     &.completed {
-      background-color: $backgroundColor_dark_green;
+      background-color: $backgroundColor_blue;
       color: $textColor_white;
     }
   }

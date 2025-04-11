@@ -25,7 +25,7 @@
       right: -50px; /* Расстояние от правого края элемента myProfile-left */
       bottom: 0;
       width: 2px; /* Ширина линии */
-      background-color: $backgroundColor_dark_green; /* Цвет линии */
+      background-color: $backgroundColor_blue; /* Цвет линии */
     }
     @media screen and (max-width: $media-width-md) {
       width: 100%;
@@ -80,8 +80,8 @@
         transition: all 0.3s ease;
       }
       &.active {
-        color: $backgroundColor_dark_green;
-        border-bottom: 3px solid $backgroundColor_dark_green;
+        color: $backgroundColor_blue;
+        border-bottom: 3px solid $backgroundColor_blue;
         .myProfile-account::before{
           content: url('https://placehold.co/20x20');
         }
@@ -132,8 +132,8 @@
           width: 50%;
           @media screen and (max-width: $media-width-xs) {
             width: 100%;
-            background-color: $backgroundColor_dark_green;
-            border: 1px solid $backgroundColor_dark_green;
+            background-color: $backgroundColor_blue;
+            border: 1px solid $backgroundColor_blue;
             padding: 10px;
             text-align: center;
             color: $textColor_white;
@@ -157,7 +157,7 @@
           }
           @media screen and (max-width: $media-width-xs) {
             width: 100%;
-            border: 1px solid $backgroundColor_dark_green;
+            border: 1px solid $backgroundColor_blue;
             text-align: center;
             padding: 10px;
           }
@@ -183,8 +183,8 @@
         &__item {
           display: flex;
           padding: 10px 20px;
-          background-color: $backgroundColor_dark_green;
-          border: 1px solid $backgroundColor_dark_green;
+          background-color: $backgroundColor_blue;
+          border: 1px solid $backgroundColor_blue;
           color: $textColor_white;
           font-size: 16px;
           border-radius: 5px;
@@ -192,7 +192,7 @@
           transition: all 0.3s ease;
 
           &:hover {
-            background-color: rgba($backgroundColor_dark_green, 0.9);
+            background-color: rgba($backgroundColor_blue, 0.9);
             border-color: #000000;
             transition: background-color 0.3s ease-in;
           }
@@ -200,8 +200,8 @@
       }
     }
     &__logout {
-      background-color: $backgroundColor_dark_green;
-      border: 1px solid $backgroundColor_dark_green;
+      background-color: $backgroundColor_blue;
+      border: 1px solid $backgroundColor_blue;
       padding: 5px 10px;
       color: $textColor_white;
       font-size: 16px;
@@ -210,7 +210,7 @@
       transition: all 0.3s ease;
 
       &:hover {
-        background-color: rgba($backgroundColor_dark_green, 0.9);
+        background-color: rgba($backgroundColor_blue, 0.9);
         border-color: #000000;
         transition: background-color 0.3s ease-in;
       }

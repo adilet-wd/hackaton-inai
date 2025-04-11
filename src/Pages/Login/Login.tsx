@@ -135,7 +135,7 @@ export default function Login() {
                             {userExistence}
                         </div>
                         <Button className="login__button" type="submit">
-                            Login
+                            Войти
                         </Button>
                         <div className="login-options__haveaccount">
                             Don't have account?&nbsp;<Link className="login-options__haveaccount2" to="/auth/register"> Register</Link>

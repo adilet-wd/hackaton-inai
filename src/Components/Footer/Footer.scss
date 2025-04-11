@@ -7,7 +7,7 @@
   max-width: 100%;
   width: 100%;
   padding: 100px 0 20px 0;
-  background-color: $backgroundColor_dark_green;
+  background-color: $backgroundColor_blue;
   color: $colorTextWhite;
   @media (max-width: $media-width-xs) {
     padding: 40px 0 40px 0;
@@ -57,7 +57,7 @@
         width: 100%;
       }
       .footer__subtitle {
-        color: $textColor_light_yellow;
+        color: $textColor_white;
         display: flex;
         align-items: center;
         gap: 5px;

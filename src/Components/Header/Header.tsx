@@ -18,7 +18,7 @@ const Header = () => {
                 <Container className='header-container'>
                     <Navbar.Brand href="/">
                         <img src={logo} alt="error" className='navLogo'/>
-                        RoST
+                        ТезКредит
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'md'}`} data-bs-theme="light"/>
                     <Navbar.Offcanvas
@@ -31,11 +31,11 @@ const Header = () => {
                                 <Offcanvas.Title><img src={logo} alt="error" className='title-logo'/></Offcanvas.Title>
                             </Offcanvas.Header>
                             <Nav className="justify-content-end navLinks">
-                                <Nav.Link href="/">Home</Nav.Link>
-                                <Nav.Link href="/groups/">Groups</Nav.Link>
+                                <Nav.Link href="/">Главная</Nav.Link>
+                                <Nav.Link href="/">Кредиты</Nav.Link>
                                 {auth?.isAuthenticated ?
-                                    <Nav.Link className="login-button" href="/account">Account</Nav.Link>:
-                                    <Nav.Link className="login-button" href="/auth/login">Login</Nav.Link>}
+                                    <Nav.Link className="login-button" href="/account">Профиль</Nav.Link>:
+                                    <Nav.Link className="login-button" href="/auth/login">Войти</Nav.Link>}
                             </Nav>
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>

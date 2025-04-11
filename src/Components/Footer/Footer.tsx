@@ -6,23 +6,21 @@ export default function Footer() {
         <footer className="footer">
             <div className="footer-container container">
                 <div className="footer__column">
-                    <Link to="#">About Us</Link>
-                    <Link to="#">Promotions</Link>
-                    <Link to="#">Discounts</Link>
-                    <Link to="#">Partners</Link>
+                    <Link to="#">О нас</Link>
+                    <Link to="#">Сотрудничество</Link>
+                    <Link to="#">Наши партнеры</Link>
                 </div>
                 <div className="footer__column">
-                    <Link to="#">Cooperation</Link>
-                    <Link to="#">Technical Support</Link>
+                    <Link to="#">Техническая поддержка</Link>
                     <Link to="#">FAQ</Link>
-                    <Link to="#">Terms of Use</Link>
+                    <Link to="#">Условия пользования</Link>
                 </div>
                 <div className="footer__column footer__contacts">
-                    <div className="footer__subtitle">Contacts</div>
+                    <div className="footer__subtitle">Контакты</div>
                     <a href="#">+996 (557) 66 22 91</a>
-                    <a href="#">+996 (500) 29 55 64</a>
-                    <div className="footer__subtitle">Address</div>
-                    <div>St. Kiev 323</div>
+                    <a href="#">adilet@gmail.com</a>
+                    <div className="footer__subtitle">Адрес</div>
+                    <div>Ул. Киевская 194/2</div>
                 </div>
             </div>
         </footer>
