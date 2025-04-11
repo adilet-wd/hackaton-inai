@@ -9,6 +9,7 @@ $colorMainActive: #c7a17a;
 $colorPurple: rgba(33, 27, 55, 0.9);
 $colorWhite: #ffffff;
 $colorGray: #F5F5F5;
+$colorDarkGray: #b3b3b3;
 $colorOrange: #ff7f2c;
 
 $textColor_white: #ffffff;
@@ -28,3 +29,15 @@ $backgroundColor_orange: #EC9611;
 $backgroundColor_gray: rgb(203, 203, 203, 20%);
 $backgroundColor_dark_gray: #353535;
 $backgroundColor_yellow: #FFC700;
+
+
+$theme-colors: (
+  "primary":    $backgroundColor_blue,
+  // "secondary":  $secondary,
+  // "success":    $success,
+  // "info":       $info,
+  // "warning":    $warning,
+  // "danger":     $danger,
+  // "light":      $light,
+  // "dark":       $dark
+);

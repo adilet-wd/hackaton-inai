@@ -1,5 +1,5 @@
-@import '../../styles/breakpoints.scss';
-@import '../../styles/color-variables.scss';
+@import "../../styles/breakpoints.scss";
+@import "../../styles/color-variables.scss";
 
 .division-line {
   width: 100%;
@@ -33,6 +33,47 @@
     max-width: 800px;
   }
 }
+.homeBlock {
+  height: 50vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  position: relative;
+  z-index: 2;
+}
+.homeBlock_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  @media (max-width: $media-width-sm) {
+    text-align: center;
+    > h1 {
+      font-size: 2rem;
+    }
+  }
+}
+.homeMesh {
+  position: absolute;
+  z-index: 1;
+  top: -10rem;
+  right: 0;
+  width: 40rem;
+  pointer-events: none;
+  @media (max-width: $media-width-sm) {
+    top: 0rem;
+		width: 20rem;
+
+  }
+}
+.homePhones {
+  height: auto;
+  z-index: 3;
+  @media (max-width: $media-width-sm) {
+    display: none;
+  }
+}
 .browse-items {
   display: flex;
   flex-direction: column;
@@ -62,7 +103,6 @@
           text-align: center;
         }
       }
-
     }
 
     @media (max-width: $media-width-sm) {
@@ -111,7 +151,7 @@
       transition: 0.2s ease-out;
     }
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -130,7 +170,6 @@
       position: relative;
       z-index: 2;
     }
-
   }
   .division-line {
     margin: 20px 0;
