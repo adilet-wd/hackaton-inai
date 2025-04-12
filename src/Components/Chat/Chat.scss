@@ -1,0 +1,21 @@
+
+.chat-bot {
+      margin-top: 30px;
+      @media (max-width: 380px) {
+            padding: 10px !important;
+      }
+}
+.background-blue {
+      background-color: #0460D9;
+}
+.chat__input {
+      @media (max-width: 380px) {
+            max-width: 170px;
+      }
+}
+.chat__border {
+      @media (max-width: 380px) {
+            padding: 5px !important;
+
+      }
+}

@@ -32,7 +32,7 @@ const Header = () => {
                             </Offcanvas.Header>
                             <Nav className="justify-content-end navLinks">
                                 <Nav.Link href="/">Главная</Nav.Link>
-                                <Nav.Link href="/">Кредиты</Nav.Link>
+                                <Nav.Link href="/chat-bot">Вопрос ответ</Nav.Link>
                                 {auth?.isAuthenticated ?
                                     <Nav.Link className="login-button" href="/account">Профиль</Nav.Link>:
                                     <Nav.Link className="login-button" href="/auth/login">Войти</Nav.Link>}

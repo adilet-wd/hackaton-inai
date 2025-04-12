@@ -1,5 +1,5 @@
-import React, {useContext, useState} from "react";
-import {useNavigate} from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "./authContext";
 import axios from "axios";
 
@@ -14,11 +14,16 @@ export interface LoginData {
 }
 
 export interface RegistrationData {
-    name: string;
-    username: string;
-    surname: string;
     email: string;
     password: string;
+    username: string;
+    name: string;
+    surname: string;
+    dateOfBirth: string;
+    passportNumber: string;
+    dateOfExpire: string;
+    dateOfIssue: string;
+    personalNumber: string;
 }
 
 /**
@@ -33,17 +38,24 @@ export interface UserData {
     email: string;
     id: number;
     password: string;
-    role: string;
     username: string;
+    dateOfBirth: string;
+    passportNumber: string;
+    dateOfExpire: string;
+    dateOfIssue: string;
+    personalNumber: string;
 }
-
 
 /**
  * Компонент для авторизации пользователя
  * @param {React.ReactNode} children - Дочерние компоненты
  * @return {JSX.Element} - Компонент для авторизации пользователя
  */
-const AuthProvider = ({ children }: { children: React.ReactNode }): JSX.Element => {
+const AuthProvider = ({
+                          children,
+                      }: {
+    children: React.ReactNode;
+}): JSX.Element => {
     const navigate = useNavigate();
 
     /**
@@ -51,10 +63,14 @@ const AuthProvider = ({ children }: { children: React.ReactNode }): JSX.Element 
     const [user, setUser] = useState<UserData | null>(null);
     /**
      *  Состояние для хранения токена доступа*/
-    const [accessToken, setAccessToken] = useState<string>(localStorage.getItem("bricsAccessToken") || "");
+    const [accessToken, setAccessToken] = useState<string>(
+            localStorage.getItem("bricsAccessToken") || ""
+    );
     /**
      * Состояние для хранения токена обновления*/
-    const [refreshToken, setRefreshToken] = useState<string>(localStorage.getItem("bricsRefreshToken") || "");
+    const [refreshToken, setRefreshToken] = useState<string>(
+            localStorage.getItem("bricsRefreshToken") || ""
+    );
     /**
      * Состояние для хранения аутентификации пользователя*/
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
@@ -68,21 +84,31 @@ const AuthProvider = ({ children }: { children: React.ReactNode }): JSX.Element 
      * @return {Promise<boolean>} - Возвращает true если пользователь успешно зарегистрирован, иначе false
      */
     async function register(data: RegistrationData): Promise<boolean> {
+        console.log(data);
+
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/register/`, data, {
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
+            const response = await axios.post(
+                    `${import.meta.env.VITE_API_URL}/auth/register`,
+                    data,
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    }
+            );
             const res = response.data;
+
             if (!res) return false;
 
-            if(response.status === 201) {
-                const userRequest = await axios.get(`${import.meta.env.VITE_API_URL}/user/myProfile/`, {
-                    headers: {
-                        "Authorization": `Bearer ${res.accessToken}`,
-                    },
-                });
+            if (response.status === 201) {
+                const userRequest = await axios.get(
+                        `${import.meta.env.VITE_API_URL}/user/myProfile/`,
+                        {
+                            headers: {
+                                Authorization: `Bearer ${res.accessToken}`,
+                            },
+                        }
+                );
                 const userData = userRequest.data;
                 if (!userData) return false;
 
@@ -108,21 +134,28 @@ const AuthProvider = ({ children }: { children: React.ReactNode }): JSX.Element 
      * @param {LoginData} data - Данные для входа
      * @return {Promise<boolean>} - Возвращает true если пользователь успешно вошел, иначе false
      */
-    async function login (data: LoginData): Promise<boolean> {
+    async function login(data: LoginData): Promise<boolean> {
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/login/`, data, {
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
+            const response = await axios.post(
+                    `${import.meta.env.VITE_API_URL}/auth/login/`,
+                    data,
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    }
+            );
             const res = response.data;
             if (!res) return false;
 
-            const userRequest = await axios.get(`${import.meta.env.VITE_API_URL}/user/myProfile/`, {
-                headers: {
-                    "Authorization": `Bearer ${res.accessToken}`,
-                },
-            });
+            const userRequest = await axios.get(
+                    `${import.meta.env.VITE_API_URL}/user/myProfile/`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${res.accessToken}`,
+                        },
+                    }
+            );
             const userData = userRequest.data;
             if (!userData) return false;
 
@@ -134,7 +167,6 @@ const AuthProvider = ({ children }: { children: React.ReactNode }): JSX.Element 
             localStorage.setItem("bricsAccessToken", res.accessToken);
             localStorage.setItem("bricsRefreshToken", res.refreshToken);
             return true;
-
         } catch {
             console.error("Unauthorized: Invalid username or password");
             return false;
@@ -156,20 +188,21 @@ const AuthProvider = ({ children }: { children: React.ReactNode }): JSX.Element 
     };
 
     async function refreshAccessToken(token: string) {
-
         try {
-            const response = await axios.get(`${import.meta.env.VITE_API_URL}/auth/refresh/`, {
-                headers: {
-                    "Authorization": `Bearer ${token}`,
-                },
-            });
+            const response = await axios.get(
+                    `${import.meta.env.VITE_API_URL}/auth/refresh/`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+            );
             const res = response.data;
 
             if (!res) return "";
             setAccessToken(res.accessToken);
             localStorage.setItem("bricsAccessToken", res.accessToken);
             return res.accessToken;
-
         } catch {
             console.error("Unauthorized: Invalid username or password");
             return "";
@@ -177,9 +210,22 @@ const AuthProvider = ({ children }: { children: React.ReactNode }): JSX.Element 
     }
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated,accessToken, setAccessToken, refreshToken, refreshAccessToken, setRefreshToken, login, logOut, register, user }}>
-            {children}
-        </AuthContext.Provider>
+            <AuthContext.Provider
+                    value={{
+                        isAuthenticated,
+                        accessToken,
+                        setAccessToken,
+                        refreshToken,
+                        refreshAccessToken,
+                        setRefreshToken,
+                        login,
+                        logOut,
+                        register,
+                        user,
+                    }}
+            >
+                {children}
+            </AuthContext.Provider>
     );
 };
 

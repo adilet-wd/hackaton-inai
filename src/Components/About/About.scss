@@ -1,0 +1,63 @@
+@import "../../styles/breakpoints.scss";
+@import "../../styles/color-variables.scss";
+.bankLogos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+.mySwiper {
+  height: 20rem;
+}
+.swiper-slide {
+  width: 15rem !important;
+  height: 15rem !important;
+  transition: transform 0.3s;
+  cursor: pointer;
+  &:hover {
+    transform: translate(10px, -10px) !important;
+  }
+}
+
+.banksBlock {
+  height: 100%;
+  box-shadow: 0px 0px 20px rgb(223, 223, 223);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 20px;
+  padding: 1rem;
+}
+.aboutBlock {
+  width: 100%;
+  padding: 2rem;
+	gap: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px rgb(223, 223, 223);
+  display: flex;
+  flex-direction: column;
+}
+.aboutLogo_link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  > img {
+    width: 20rem;
+  }
+}
+.aboutBtn {
+  background-color: $backgroundColor_blue;
+  width: 10rem;
+  height: 3rem;
+  border-radius: 15px;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
